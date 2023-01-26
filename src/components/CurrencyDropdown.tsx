@@ -15,6 +15,6 @@ function CurrencyDropdown(data: { symbols: string[], title: string, currency: st
             onChange={data.handler}
         />
     )
-};
+}
 
 export default CurrencyDropdown;
