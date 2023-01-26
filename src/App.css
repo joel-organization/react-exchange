@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.Selectors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+@media screen and (max-width: 650px){
+  .Selectors {
+    flex-direction: column;
+  }
+}
