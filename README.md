@@ -9,3 +9,8 @@ Simple react application that uses a [public exchange api](https://api.exchanger
 ## Mobile
 
 ![Screenshot from 2023-01-26 02-50-01](https://user-images.githubusercontent.com/9081709/214739057-35e4bf53-d80b-428e-945b-7326a91233b2.png)
+
+## Run locally
+
+npm install
+npm start

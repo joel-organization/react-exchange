@@ -6,6 +6,7 @@ export const useCurrencyData = () => {
     const [quoteCurrency, setQuoteCurrency] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [conversionRate, setConversionRate] = useState(0);
+    const [lastUpdate, setLastUpdate] = useState("");
     const [loadingNewData, setLoadingNewData] = useState(false);
 
     useEffect(() => {
@@ -15,8 +16,12 @@ export const useCurrencyData = () => {
 
         (async () => {
             setLoadingNewData(true);
-            const conversion = await ConvertCurrencies(baseCurrency, quoteCurrency);
-            setConversionRate(conversion);
+            const conversionData = await ConvertCurrencies(baseCurrency, quoteCurrency);
+            setConversionRate(conversionData.data?.[quoteCurrency]?.value);
+            const formattedLastUpdatedAt = conversionData.meta?.last_updated_at
+                ? new Date(conversionData.meta.last_updated_at).toLocaleString()
+                : 'N/A';
+            setLastUpdate(formattedLastUpdatedAt);
             setLoadingNewData(false);
         })();
 
@@ -48,6 +53,7 @@ export const useCurrencyData = () => {
             quantity,
             conversionRate,
             loadingNewData,
+            lastUpdate,
             handleBaseCurrencyChange,
             handleQuoteCurrencyChange,
             handleQuantityChange

@@ -13,6 +13,7 @@ function App() {
             quantity,
             conversionRate,
             loadingNewData,
+            lastUpdate,
             handleBaseCurrencyChange,
             handleQuoteCurrencyChange,
             handleQuantityChange
@@ -39,6 +40,7 @@ function App() {
                 <div>
                     <p>You need {conversionRate * quantity} {quoteCurrency} to buy {quantity} {baseCurrency}</p>
                     <p>Exchange Rate: {conversionRate}</p>
+                    <p>Last updated: {lastUpdate}</p>
                 </div>
             }
             {loadingSymbols && <p>Loading symbols list...</p>}
